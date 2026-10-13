@@ -205,7 +205,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+    <div className="min-h-screen flex flex-col bg-[#FAF9F5]">
       {/* Top Navigation */}
       <Navbar
         onReset={handleResetSession}
@@ -215,9 +215,6 @@ export default function App() {
         onStartUpload={handleStartUpload}
         onOpenComparison={() => setIsComparisonOpen(true)}
       />
-
-      {/* Safety Notice Banner */}
-      <SafetyDisclaimer />
 
       {/* Main Content Area */}
       <main className="flex-1">

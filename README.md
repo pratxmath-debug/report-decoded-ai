@@ -1,55 +1,70 @@
-# Spark Decoded ⚡
+# Spark Decoded
 
-> **Tagline:** Understand your lab report. Prepare for your next doctor's visit.  
-> **Problem Statement:** AAYU 2026 Hackathon — T02 (Report, Decoded)  
-> **Brand & Experience:** Spark Decoded — Next-Generation Laboratory Intelligence UI
+> **Understand your lab report. Prepare for your next doctor's visit.**  
+> **Team:** Solvyn  
+> **Event:** AAYU Hackathon 2026 — Problem Statement T02 (Report, Decoded)  
+> **Domain:** Healthcare AI & Patient Communication  
 
-[![Test Suite](https://img.shields.io/badge/Vitest-26%20Passed-emerald.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/src/tests/classifier.test.ts)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/tsconfig.json)
-[![Vite](https://img.shields.io/badge/Vite-5.4-purple.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/vite.config.ts)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Client--Side-teal.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/src/components/SettingsModal.tsx)
+[![Test Suite](https://img.shields.io/badge/Vitest-28%20Passed-124E4A.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/src/tests/classifier.test.ts)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-287F78.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/tsconfig.json)
+[![Vite](https://img.shields.io/badge/Vite-5.4-A8C8BA.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/vite.config.ts)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Client--Side-124E4A.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/src/components/SettingsModal.tsx)
+[![Database](https://img.shields.io/badge/Database-Native%20SQLite%203-287F78.svg)](file:///Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai/server/db.mjs)
 
 ---
 
-## 🌟 1. Product Overview
+## 1. Product Overview
 
 Patients receive laboratory reports containing unfamiliar numerical values, abbreviations (e.g. ALT, SGOT, TSH, HbA1c), reference ranges, and flags (`H`, `L`, `*`). Patients frequently experience anxiety or turn to unvetted internet searches that present frightening diagnoses.
 
-**Spark Decoded** is a patient-centric, privacy-first web application designed to bridge the medical communication gap:
+**Spark Decoded** is a patient-centric, privacy-first healthcare AI platform designed to bridge the medical communication gap:
 1. **Extracts** laboratory report parameters from uploaded scans, photos, or text-based PDFs.
-2. **Compares** extracted values directly with the specific laboratory reference ranges printed on that report.
-3. **Explains** what each test generally measures in plain language using a curated, non-diagnostic glossary.
-4. **Prepares** patients for their next doctor's visit by generating structured, safe, and actionable questions.
+2. **Enables Patient Verification** with side-by-side editing before any interpretation is made.
+3. **Compares** extracted values directly with the specific laboratory reference ranges printed on that report using deterministic arithmetic.
+4. **Explains** what each test generally measures in plain language using an accredited educational glossary.
+5. **Prepares** patients for their next doctor's visit by generating structured, safe, and actionable questions.
 
 > ⚠️ **Core Healthcare Safety Principle:**  
 > Spark Decoded **never** diagnoses a disease, recommends medical treatment, prescribes medication, or independently decides that an abnormal result indicates a specific clinical condition.
 
 ---
 
-## ⚡ 2. Brand Identity & UI Redesign
+## 2. Visual Identity & Brand System
 
-- **New Identity:** Custom electric cyan and teal lightning-spark symbol inside a dimensional beveled container.
-- **Visual Aesthetic:** Refined healthcare SaaS interface blending deep midnight navy (`#0B192C`), medical teal (`#0D9488`), electric cyan (`#06B6D4`), and soft ice-blue glass surfaces (`#F0F9FF`).
-- **3D Interactive Hero:** Floating composite laboratory report card with layered isometric perspective, real-time comparison chips, and ambient lighting.
-- **Clinical Dashboard:** 5 distinct dimensional summary cards (Total Parameters, Within Range, Above Range, Below Range, Needs Verification), responsive filter chips, and accessible search.
+- **Medical Shield & Clarity Emblem:** A custom clinical identity combining a medical shield, precision healthcare cross, and central four-pointed clarity spark.
+- **Premium Clinical Palette:**
+  - **Deep Forest Teal:** `#124E4A` (Primary headers, high-contrast text, brand elements)
+  - **Medical Teal:** `#287F78` (Primary accents, interactive highlights, active badges)
+  - **Muted Sage:** `#A8C8BA` (Borders, subtle iconography, structural accents)
+  - **Pale Mint:** `#E5F3ED` (Badges, pill containers, soft highlighted cards)
+  - **Soft Ivory:** `#FAF9F5` (Base background, clean clinical reading surfaces)
+  - **Ice White:** `#FFFFFF` (Card surfaces, elevated glass panels)
+  - **Dark Graphite:** `#253532` (Body typography and reading contrast)
+  - **Muted Slate:** `#667773` (Secondary captions, metadata labels)
+- **Illustrated Healthcare Visuals:** Illustrated medical backgrounds with ambient lighting, friendly clinician-patient consultation graphics, and 3D Three.js intelligence core.
+- **Multi-Page Experience:**
+  - `/` — Interactive Report Decoder, 4-Stage Workflow, Reference Range Science, Responsible AI Commitments, FAQ
+  - `/features` — In-depth breakdown of all 11 core clinical & UX capabilities
+  - `/how-it-works` — 6-stage clinical explanation workflow + interactive test bench
+  - `/tests` — Live database-powered medical catalog with search, category tabs, and test detail modals
 
 ---
 
-## 🔒 3. Privacy & Safety Architecture
+## 3. Privacy & Safety Architecture
 
 - **100% In-Browser Execution:** OCR (`Tesseract.js`), PDF rendering & text extraction (`PDF.js`), range classification, and glossary lookups run entirely inside the user's browser.
-- **Zero Server Uploads:** No patient report files, text snippets, or health numbers are transmitted to any remote storage or analytics platform.
+- **Zero Server Health Data Storage:** No patient report files, text snippets, or health numbers are transmitted to any remote storage or analytics platform. The SQLite database stores *strictly public educational test information*.
 - **Session Wipe on Reset:** Resetting or loading a new report clears all state from memory.
-- **Safe Fallback for Missing Ranges:** The deterministic rule engine **never** assumes missing information is normal, nor does it substitute arbitrary generic reference ranges.
+- **Safe Fallback for Missing Ranges:** The deterministic rule engine **never** assumes missing information is normal, nor does it substitute arbitrary generic reference ranges. Parameters missing ranges are tagged as `Needs Verification`.
 - **No LLM for Out-of-Range Decisions:** Range comparisons are purely arithmetic and deterministic. LLMs are never used to categorize in-range or out-of-range values.
 - **Untrusted Input Protection:** If an optional Google Gemini API key is configured, report contents are treated strictly as untrusted data with system instructions preventing diagnoses or prescriptive decisions.
 
 ---
 
-## 🚀 4. Quick Start & Local Development
+## 4. Quick Start & Local Development
 
 ### Prerequisites
-- Node.js `v18+` or `v20+` (tested on Node.js `v24.18.0`)
+- Node.js `v18+`, `v20+`, or `v24+` (tested on Node.js `v24.18.0`)
 - npm `v9+` or `v11+`
 
 ### Installation & Run
@@ -61,18 +76,21 @@ cd /Users/pmathur/.gemini/antigravity/scratch/report-decoded-ai
 # 2. Install dependencies
 npm install
 
-# 3. Start local development server
+# 3. Seed educational medical database (already seeded)
+npm run db:seed
+
+# 4. Start local development server (Vite + Express API middleware)
 npm run dev
 ```
 
-Open your browser at `http://127.0.0.1:5173/` or `http://localhost:5173/`.
+Open your browser at `http://localhost:5173/`.
 
 ### Run Automated Unit Tests
 
 ```bash
 npm test
 ```
-Runs 26 unit tests verifying:
+Runs 28 unit tests verifying:
 - Values below reference intervals
 - Values equal to lower boundary (boundary inclusivity)
 - Values equal to upper boundary
@@ -83,112 +101,107 @@ Runs 26 unit tests verifying:
 - Missing reference range guardrails (`NEEDS_VERIFICATION`)
 - Invalid intervals (e.g. `100 - 50` where lower > upper)
 - Curated medical glossary lookups and exact fallback message for unknown tests
+- Multi-report delta calculations
 
 ### Production Build
 
 ```bash
 npm run build
 ```
+Executes TypeScript type checking (`tsc`) and Vite production bundling with chunk optimization.
 
 ---
 
-## 📋 5. User Workflow
+## 5. User Workflow
 
 ```
 [ Step 1: Landing Page ]
           │
           ├── "Decode My Report" ──────► [ Step 2: Upload Dropzone ]
-          │                                        │
-          └── "Explore Sample Report" ─┐          ├── Supported: JPG, JPEG, PNG, PDF
-                                       │          ├── Real OCR (Tesseract.js)
-                                       │          ├── Real PDF.js parsing + Scanned OCR fallback
-                                       │          └── Manual Entry Fallback
-                                       ▼                   │
-                          [ Step 3: Verification Screen ]
-                                       │
-                                       ├── Review extracted test names, values, units & ranges
-                                       ├── Edit typos, add missing rows, or remove spurious rows
-                                       ├── Clear "Needs verification" alerts
-                                       ▼
-                          [ Step 4: Analysis Dashboard ]
-                                       │
-                                       ├── Summary Metrics (Total, Within, Above, Below, Needs Verification)
-                                       ├── Non-alarmist status classifications
-                                       ├── Graphic visual reference scale bars
-                                       ├── Curated plain-language explanation cards
-                                       ├── Search & category filters
-                                       └── "Questions to discuss with your doctor" Checklist (Print / Copy)
+          │                                  │
+          └── "Try Sample Report"            ├── Drag & drop image / PDF
+                     │                       ├── Tesseract.js OCR / PDF.js
+                     ▼                       ▼
+          [ Step 3: Patient Verification Screen ]
+                     │  - Inspect side-by-side extracted values
+                     │  - Correct OCR misreads or missing units
+                     │  - Add manual tests if desired
+                     ▼
+          [ Step 4: Results & Doctor Preparation Dashboard ]
+                     ├── Summary Cards (Total, Within, Above, Below, Verify)
+                     ├── Range Visualizer Bars (Report Value vs Lab Bounds)
+                     ├── Plain-Language Test Explanations (Curated Glossary)
+                     ├── Generated Questions for Doctor Consultation
+                     ├── Longitudinal Report Comparison Modal
+                     └── Printer-Friendly Doctor Consultation Brief Export
 ```
 
 ---
 
-## 🧪 6. Demo Experience (Try Sample Report)
+## 6. Project Architecture
 
-For quick hackathon evaluation without uploading personal documents, click **"Explore Sample Report"** on the landing page or upload screen:
-
-1. **Option 1: Standard Health Screening (Illustrative Demo)**  
-   Features realistic fictional values for:
-   - **HbA1c:** `6.2 %` (Printed Ref: `< 5.7`) → Classified as *Above lab reference range*
-   - **TSH:** `4.85 uIU/mL` (Printed Ref: `0.40 - 4.20`) → Classified as *Above lab reference range*
-   - **ALT / SGPT:** `28 U/L` (Printed Ref: `7 - 56`) → Classified as *Within lab reference range*
-   - **Hemoglobin (Hb):** `14.1 g/dL` (Printed Ref: `13.2 - 16.6`) → Classified as *Within lab reference range*
-   - **Serum Creatinine:** `0.92 mg/dL` (Printed Ref: `0.70 - 1.30`) → Classified as *Within lab reference range*
-   - **Total Cholesterol:** `218 mg/dL` (Printed Ref: `< 200`) → Classified as *Above lab reference range*
-   - **Platelet Count:** `135 10^3/uL` (Printed Ref: `150 - 450`) → Classified as *Below lab reference range*
-   - **Urine Protein:** `Negative` (Printed Ref: `Negative`) → Classified as *Within lab reference range*
-
-2. **Option 2: Low-Confidence / Incomplete Items Demo**  
-   Demonstrates how the system handles missing reference ranges (e.g. Vitamin D without printed range) and unreadable smudged values, correctly tagging them as **"Needs verification"** instead of falsely assuming normal.
-
----
-
-## 🩺 7. Curated Medical-Test Glossary
-
-Covers standard routine and diagnostic parameters:
-- **HbA1c (Glycated Hemoglobin)**
-- **Blood Glucose (Fasting / Random / RBS)**
-- **Hemoglobin (Hb)**
-- **TSH (Thyroid Stimulating Hormone)**
-- **ALT / SGPT (Alanine Aminotransferase)**
-- **AST / SGOT (Aspartate Aminotransferase)**
-- **Serum Creatinine**
-- **Total Cholesterol, LDL, HDL, Triglycerides**
-- **White Blood Cell Count (WBC) & Platelet Count**
-- **BUN / Urea, Total Bilirubin, Alkaline Phosphatase (ALP)**
-- **Serum Potassium (K+), Serum Sodium (Na+), Vitamin D, CRP**
-
-### Unknown Test Protocol
-When a parameter is not cataloged in the verified medical glossary, the app outputs the exact safe string:
-> *"An explanation for this parameter is not available in the current glossary. Please ask your healthcare professional."*
-
----
-
-## 💡 8. Doctor-Preparation Questions
-
-The system dynamically builds patient-centered questions organized into four clear categories:
-1. **General Context:** How these results relate to personal history and symptoms.
-2. **Testing Validity:** How hydration, timing, recent exercise, or fasting conditions affect numbers.
-3. **Follow-up & Monitoring:** Recommended follow-up intervals or confirmatory repeat tests.
-4. **Lifestyle & Medications:** Potential interactions with prescription drugs, supplements, or diet.
-
-Features:
-- Interactive checkboxes to mark questions during the medical appointment.
-- **Copy Checklist** button to copy cleanly formatted notes to clipboard.
-- **Print Guide** button with print-optimized CSS for paper handouts.
-
----
-
-## ⚙️ 9. Optional Gemini AI Integration
-
-- The app operates **100% offline and free** without requiring any API keys.
-- If a user wishes to enable interactive questions, they can input a Google Gemini API key via the **AI Settings** modal.
-- Key is stored strictly in `sessionStorage` (cleared when tab closes).
-- Strict system prompts prohibit diagnosing diseases, prescribing treatments, or modifying deterministic lab rules.
+```
+report-decoded-ai/
+├── index.html                   # HTML entry point with medical favicon & title
+├── package.json                 # Dependencies & scripts
+├── vite.config.ts               # Vite bundler & API middleware integration
+├── tailwind.config.js           # Design tokens (forest teal, medical teal, sage)
+├── server/                      # Local Backend Services
+│   ├── db.mjs                   # Native Node 24 SQLite connection (node:sqlite)
+│   ├── index.mjs                # Express REST API (/api/tests, /api/categories)
+│   ├── seed.mjs                 # Clinical database seeding script
+│   └── data/                    # SQLite database storage (spark_decoded.sqlite)
+└── src/
+    ├── App.tsx                  # Main app router & report workflow coordinator
+    ├── main.tsx                 # React DOM mount with BrowserRouter
+    ├── index.css                # Global clinical styles & ambient gradients
+    ├── components/
+    │   ├── Navbar.tsx           # Compact clinical navigation
+    │   ├── Footer.tsx           # Platform footer with sources & disclaimer
+    │   ├── SparkLogo.tsx        # Medical shield & clarity spark SVG emblem
+    │   ├── SparkCore3D.tsx      # Three.js 3D Intelligence Core
+    │   ├── LandingHero.tsx      # Hero section with 3D Core & trust metrics
+    │   ├── LandingSections.tsx  # End-to-end workflow, test preview, FAQ
+    │   ├── ReportUpload.tsx     # Drag-and-drop file upload & OCR engine
+    │   ├── VerificationScreen.tsx # Patient parameter verification & edit
+    │   ├── ResultsDashboard.tsx # Results cards, ranges, & doctor questions
+    │   ├── RangeVisualizer.tsx  # Dynamic reference-range comparison bar
+    │   ├── ExplanationCard.tsx  # Plain-language biomarker explanation
+    │   ├── DoctorQuestionsPanel.tsx # Structured consultation questions
+    │   ├── ReportComparisonModal.tsx # Multi-report longitudinal comparison
+    │   ├── ParameterDetailModal.tsx  # In-depth clinical biomarker drawer
+    │   ├── SettingsModal.tsx    # Optional Gemini AI key configuration
+    │   └── illustrations/       # Original healthcare SVG illustrations
+    │       ├── DoctorReviewingReport.tsx
+    │       ├── DoctorPatientDiscussion.tsx
+    │       ├── ReportTransformationGraphic.tsx
+    │       ├── MedicalEquipmentKit.tsx
+    │       └── IllustratedPageBackground.tsx
+    ├── pages/
+    │   ├── FeaturesPage.tsx     # 11 platform capabilities deep-dive
+    │   ├── HowItWorksPage.tsx   # 6-stage workflow & parameter test bench
+    │   └── TestsExplorerPage.tsx # Database-backed medical test catalog
+    ├── data/
+    │   ├── glossary.ts          # Curated clinical test dictionary
+    │   └── sampleReports.ts     # Illustrative CBC & Metabolic panel reports
+    ├── services/
+    │   └── testCatalogApi.ts    # REST API client for medical test repository
+    ├── types/
+    │   └── report.ts            # TypeScript definitions
+    └── utils/
+        ├── classifier.ts        # Deterministic reference-range rule engine
+        ├── comparator.ts        # Longitudinal report delta comparison
+        ├── doctorQuestions.ts   # Safe doctor question generator
+        ├── extractor.ts         # OCR & PDF orchestrator
+        ├── geminiAi.ts          # Optional Gemini client with safety guardrails
+        ├── labParser.ts         # Regex & tokenization heuristics
+        └── pdfParser.ts         # PDF.js text extraction
+```
 
 ---
 
-## 📊 10. Limitations & Future Roadmap
+## 7. License & Credits
 
-- **OCR Language:** The client-side Tesseract.js model is currently configured for English character sets.
-- **Complex Multi-Column Tabular Scans:** While regex heuristics parse most standard single/double column reports, highly distorted camera photos may require quick manual verification in the Verification screen.
-- **Browser Memory:** Very large PDFs (>50 pages) may take several seconds to render canvas frames on low-powered mobile devices.
+Built for the **AAYU 2026 Hackathon** by **Team Solvyn**.  
+Problem Statement: **T02 — Report, Decoded**.  
+All patient report data processing runs strictly on-device.

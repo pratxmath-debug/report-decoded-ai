@@ -127,19 +127,19 @@ export const TestsExplorerPage: React.FC<TestsExplorerPageProps> = ({
       
       {/* Header */}
       <section className="pt-12 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold mb-4 shadow-2xs">
-          <Database className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5F3ED] border border-[#A8C8BA] text-[#124E4A] text-xs font-bold mb-4 shadow-2xs">
+          <Database className="w-3.5 h-3.5 text-[#287F78]" />
           <span>NATIVE SQLITE DATABASE • ACCREDITED MEDICAL REPOSITORY</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-black text-[#071426] tracking-tight leading-tight max-w-3xl mx-auto">
+        <h1 className="text-3xl sm:text-5xl font-black text-[#124E4A] tracking-tight leading-tight max-w-3xl mx-auto">
           Medical Laboratory Test{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#124E4A] to-[#287F78]">
             Knowledge Catalog
           </span>
         </h1>
 
-        <p className="mt-4 text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 text-base text-[#667773] max-w-2xl mx-auto leading-relaxed">
           Explore what tests measure, why healthcare providers order them, factors that alter results, and what questions to ask your physician.
         </p>
 
@@ -171,7 +171,7 @@ export const TestsExplorerPage: React.FC<TestsExplorerPageProps> = ({
             onClick={() => setSelectedCategory('all')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
               selectedCategory === 'all'
-                ? 'bg-[#071426] text-white shadow-sm'
+                ? 'bg-[#124E4A] text-white shadow-sm'
                 : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
             }`}
           >

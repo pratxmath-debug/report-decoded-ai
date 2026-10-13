@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { Zap, Activity, CheckCircle2, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { Activity, CheckCircle2, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { SparkLogo } from './SparkLogo';
 
 interface SparkCore3DProps {
   className?: string;
@@ -54,16 +55,16 @@ export const SparkCore3D: React.FC<SparkCore3DProps> = ({
     container.appendChild(renderer.domElement);
 
     // 2. Lighting System
-    const ambientLight = new THREE.AmbientLight(0x061826, 2.5);
+    const ambientLight = new THREE.AmbientLight(0x0e3e3b, 2.5);
     scene.add(ambientLight);
 
-    const cyanPoint = new THREE.PointLight(0x06b6d4, 3.5, 20);
-    cyanPoint.position.set(3, 3, 4);
-    scene.add(cyanPoint);
-
-    const tealPoint = new THREE.PointLight(0x0d9488, 3.0, 20);
-    tealPoint.position.set(-3, -2, 3);
+    const tealPoint = new THREE.PointLight(0x287f78, 3.5, 20);
+    tealPoint.position.set(3, 3, 4);
     scene.add(tealPoint);
+
+    const sagePoint = new THREE.PointLight(0xa8c8ba, 3.0, 20);
+    sagePoint.position.set(-3, -2, 3);
+    scene.add(sagePoint);
 
     const topWhite = new THREE.DirectionalLight(0xffffff, 1.2);
     topWhite.position.set(0, 5, 5);
@@ -76,15 +77,15 @@ export const SparkCore3D: React.FC<SparkCore3DProps> = ({
     // Outer Faceted Crystal
     const outerGeo = new THREE.OctahedronGeometry(1.6, 0);
     const outerMat = new THREE.MeshPhysicalMaterial({
-      color: 0x06b6d4,
-      emissive: 0x083344,
-      roughness: 0.1,
+      color: 0x287f78,
+      emissive: 0x124e4a,
+      roughness: 0.15,
       metalness: 0.2,
-      transmission: 0.6,
+      transmission: 0.65,
       ior: 1.5,
       thickness: 1.2,
       transparent: true,
-      opacity: 0.88,
+      opacity: 0.90,
       flatShading: true
     });
     const outerCrystal = new THREE.Mesh(outerGeo, outerMat);
@@ -93,19 +94,19 @@ export const SparkCore3D: React.FC<SparkCore3DProps> = ({
     // Inner Glowing Core (Spike / Icosahedron)
     const innerGeo = new THREE.IcosahedronGeometry(0.85, 0);
     const innerMat = new THREE.MeshStandardMaterial({
-      color: 0x22d3ee,
-      emissive: 0x06b6d4,
+      color: 0xa8c8ba,
+      emissive: 0x287f78,
       emissiveIntensity: 1.2,
       wireframe: true
     });
     const innerCore = new THREE.Mesh(innerGeo, innerMat);
     coreGroup.add(innerCore);
 
-    // 4. Orbital Ring 1 (Cyan)
+    // 4. Orbital Ring 1 (Medical Teal)
     const ring1Geo = new THREE.TorusGeometry(2.35, 0.03, 16, 100);
     const ring1Mat = new THREE.MeshStandardMaterial({
-      color: 0x67e8f9,
-      emissive: 0x06b6d4,
+      color: 0xa8c8ba,
+      emissive: 0x287f78,
       emissiveIntensity: 0.8,
       roughness: 0.3
     });
@@ -256,9 +257,9 @@ export const SparkCore3D: React.FC<SparkCore3DProps> = ({
       {/* Fallback for WebGL Unavailable or Reduced Motion */}
       {(!hasWebGL || prefersReducedMotion) && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="relative w-64 h-64 rounded-full bg-gradient-to-tr from-teal-500/20 via-cyan-400/30 to-transparent blur-xl animate-pulse" />
-          <div className="relative w-44 h-44 rounded-3xl bg-gradient-to-br from-[#0F766E] to-[#06B6D4] shadow-2xl flex items-center justify-center text-white border border-cyan-200/40">
-            <Zap className="w-20 h-20 fill-white" />
+          <div className="relative w-64 h-64 rounded-full bg-gradient-to-tr from-[#124E4A]/20 via-[#287F78]/30 to-transparent blur-xl animate-pulse" />
+          <div className="relative w-44 h-44 rounded-3xl bg-gradient-to-br from-[#124E4A] to-[#287F78] shadow-2xl flex items-center justify-center text-white border border-[#A8C8BA]/40">
+            <SparkLogo size="xl" />
           </div>
         </div>
       )}
@@ -267,8 +268,8 @@ export const SparkCore3D: React.FC<SparkCore3DProps> = ({
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
         
         {/* Floating Parameter Pill 1 (Top Left) */}
-        <div className="absolute top-8 left-0 sm:left-4 p-3.5 rounded-2xl bg-[#0B192C]/85 border border-cyan-500/40 shadow-xl backdrop-blur-md pointer-events-auto animate-float-slow hidden sm:flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/40 border border-amber-400/50 flex items-center justify-center text-amber-300">
+        <div className="absolute top-8 left-0 sm:left-4 p-3.5 rounded-2xl bg-[#0E3E3B]/90 border border-[#A8C8BA]/40 shadow-xl backdrop-blur-md pointer-events-auto animate-float-slow hidden sm:flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-amber-300">
             <AlertTriangle className="w-4 h-4" />
           </div>
           <div>
@@ -278,47 +279,47 @@ export const SparkCore3D: React.FC<SparkCore3DProps> = ({
                 Above Range
               </span>
             </div>
-            <p className="text-[11px] text-cyan-200 mt-0.5">
+            <p className="text-[11px] text-[#D4E5DE] mt-0.5">
               Reported: <strong className="text-white">6.2%</strong> • Ref: &lt; 5.7%
             </p>
           </div>
         </div>
 
         {/* Floating Parameter Pill 2 (Top Right) */}
-        <div className="absolute top-12 right-0 sm:right-4 p-3.5 rounded-2xl bg-[#0B192C]/85 border border-teal-500/40 shadow-xl backdrop-blur-md pointer-events-auto animate-float-delayed hidden sm:flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-500/40 border border-teal-400/50 flex items-center justify-center text-teal-300">
+        <div className="absolute top-12 right-0 sm:right-4 p-3.5 rounded-2xl bg-[#0E3E3B]/90 border border-[#287F78]/50 shadow-xl backdrop-blur-md pointer-events-auto animate-float-delayed hidden sm:flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-[#287F78]/30 border border-[#A8C8BA]/40 flex items-center justify-center text-[#A8C8BA]">
             <CheckCircle2 className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
               <span className="text-xs font-bold text-white">ALT / SGPT</span>
-              <span className="text-[10px] font-extrabold px-1.5 py-0.2 rounded bg-teal-500/20 text-teal-300 border border-teal-400/30">
+              <span className="text-[10px] font-extrabold px-1.5 py-0.2 rounded bg-[#287F78]/30 text-[#A8C8BA] border border-[#A8C8BA]/30">
                 Within Range
               </span>
             </div>
-            <p className="text-[11px] text-teal-200 mt-0.5">
+            <p className="text-[11px] text-[#D4E5DE] mt-0.5">
               Reported: <strong className="text-white">28 U/L</strong> • Ref: 7–56 U/L
             </p>
           </div>
         </div>
 
         {/* Floating Mini Panel (Bottom Center/Right) */}
-        <div className="absolute bottom-6 right-2 sm:right-8 p-4 rounded-2xl bg-gradient-to-br from-[#07111F]/90 to-[#0B192C]/90 border border-cyan-400/30 shadow-2xl backdrop-blur-xl pointer-events-auto max-w-[280px]">
+        <div className="absolute bottom-6 right-2 sm:right-8 p-4 rounded-2xl bg-gradient-to-br from-[#0E3E3B]/95 to-[#124E4A]/95 border border-[#A8C8BA]/30 shadow-2xl backdrop-blur-xl pointer-events-auto max-w-[280px]">
           <div className="flex items-center justify-between pb-2 border-b border-white/10 mb-2">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-cyan-300">
-              <Activity className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="flex items-center gap-1.5 text-xs font-bold text-[#A8C8BA]">
+              <Activity className="w-3.5 h-3.5 text-[#A8C8BA]" />
               <span>Spark Intelligence Core</span>
             </div>
-            <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
+            <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#0E3E3B] text-[#A8C8BA] border border-[#1B5B56]">
               Active
             </span>
           </div>
-          <p className="text-[11px] text-slate-300 leading-relaxed">
+          <p className="text-[11px] text-[#E5F3ED]/90 leading-relaxed">
             Deterministic evaluation comparing report values directly against physical laboratory reference intervals.
           </p>
-          <div className="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-cyan-200 font-medium">
+          <div className="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-[#D4E5DE] font-medium">
             <span>Client-side OCR & PDF</span>
-            <span className="text-teal-300 font-bold">100% Private</span>
+            <span className="text-[#A8C8BA] font-bold">100% Private</span>
           </div>
         </div>
 

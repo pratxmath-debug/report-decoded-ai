@@ -49,34 +49,34 @@ export const FeaturesPage: React.FC<FeaturesPageProps> = ({
       
       {/* Hero Header */}
       <section className="pt-12 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold mb-4 shadow-2xs">
-          <Layers className="w-3.5 h-3.5 text-teal-600" />
-          <span>SPARK DECODED 3.0 CAPABILITIES</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5F3ED] border border-[#A8C8BA] text-[#124E4A] text-xs font-bold mb-4 shadow-2xs">
+          <Layers className="w-3.5 h-3.5 text-[#287F78]" />
+          <span>SPARK DECODED FEATURES</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-black text-[#071426] tracking-tight leading-tight max-w-3xl mx-auto">
+        <h1 className="text-3xl sm:text-5xl font-black text-[#124E4A] tracking-tight leading-tight max-w-3xl mx-auto">
           Every Feature Engineered for{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#124E4A] to-[#287F78]">
             Patient Autonomy & Clinical Clarity
           </span>
         </h1>
 
-        <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-[#667773] max-w-2xl mx-auto leading-relaxed">
           Explore the eleven core capabilities powering Spark Decoded. Designed with strict healthcare safety principles: deterministic arithmetic, on-device privacy, and zero diagnostic assumptions.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <button
             onClick={onStartUpload}
-            className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[#0D9488] to-[#06B6D4] hover:from-[#0F766E] hover:to-[#0891B2] text-white font-extrabold text-sm shadow-lg shadow-teal-900/20 transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+            className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[#124E4A] to-[#287F78] hover:from-[#0B3330] hover:to-[#1B5B56] text-white font-extrabold text-sm shadow-lg shadow-teal-950/20 transition-all flex items-center gap-2 cursor-pointer active:scale-95"
           >
-            <Zap className="w-4 h-4 fill-white" />
+            <Sparkles className="w-4 h-4 fill-white" />
             <span>Decode My Report Now</span>
           </button>
 
           <Link
             to="/tests"
-            className="px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-200 shadow-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="px-6 py-3.5 rounded-2xl bg-white hover:bg-[#FAF9F5] text-[#253532] font-bold text-sm border border-[#DCE7E3] shadow-sm transition-all flex items-center gap-2 cursor-pointer"
           >
             <BookOpen className="w-4 h-4 text-teal-600" />
             <span>Browse Medical Test Database</span>
@@ -308,7 +308,7 @@ export const FeaturesPage: React.FC<FeaturesPageProps> = ({
               </h3>
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Spark Decoded 3.0 is backed by a native SQLite relational database containing dozens of verified clinical tests across 8 categories: CBC, Diabetes, Liver, Kidney, Lipids, Thyroid, Vitamins, and Inflammation. Every entry details what the test measures, why doctors order it, and interpretation limitations.
+              Spark Decoded is backed by a native SQLite relational database containing dozens of verified clinical tests across 8 categories: CBC, Diabetes, Liver, Kidney, Lipids, Thyroid, Vitamins, and Inflammation. Every entry details what the test measures, why doctors order it, and interpretation limitations.
             </p>
             <Link
               to="/tests"

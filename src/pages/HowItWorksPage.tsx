@@ -128,19 +128,19 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
       
       {/* Page Header */}
       <section className="pt-12 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-800 text-xs font-bold mb-4 shadow-2xs">
-          <Activity className="w-3.5 h-3.5 text-cyan-600" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5F3ED] border border-[#A8C8BA] text-[#124E4A] text-xs font-bold mb-4 shadow-2xs">
+          <Activity className="w-3.5 h-3.5 text-[#287F78]" />
           <span>SYSTEM ARCHITECTURE & METHODOLOGY</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-black text-[#071426] tracking-tight leading-tight max-w-3xl mx-auto">
+        <h1 className="text-3xl sm:text-5xl font-black text-[#124E4A] tracking-tight leading-tight max-w-3xl mx-auto">
           How Spark Decoded Turns{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#124E4A] to-[#287F78]">
             Numbers into Knowledge
           </span>
         </h1>
 
-        <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-[#667773] max-w-2xl mx-auto leading-relaxed">
           From the moment you select your laboratory printout to your doctor's appointment, each step is engineered for transparency, mathematical precision, and patient safety.
         </p>
       </section>

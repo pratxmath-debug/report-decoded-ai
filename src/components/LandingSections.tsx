@@ -441,23 +441,23 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
 
       {/* 5. SECTION D: MEDICAL TEST LIBRARY PREVIEW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#EAF7FF] via-[#F0F9FF] to-[#E0F2FE] border border-cyan-200/80 shadow-sm relative overflow-hidden">
+        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#E5F3ED] via-[#F4FAF7] to-[#FAF9F5] border border-[#A8C8BA]/60 shadow-sm relative overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-              <span className="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-100/80 px-3 py-1 rounded-full border border-teal-300/60 inline-flex items-center gap-1.5">
+              <span className="text-xs font-bold text-[#124E4A] uppercase tracking-wider bg-[#D4E5DE] px-3 py-1 rounded-full border border-[#A8C8BA] inline-flex items-center gap-1.5">
                 <BookOpen className="w-3.5 h-3.5" />
                 Evidence-Based Test Catalog
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0B192C] tracking-tight mt-3">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#124E4A] tracking-tight mt-3">
                 Curated Medical Knowledge at Your Fingertips
               </h2>
-              <p className="text-sm text-slate-600 mt-2 max-w-2xl">
+              <p className="text-sm text-[#667773] mt-2 max-w-2xl">
                 Explore our accredited directory of clinical laboratory tests. Understand what each biomarker measures, typical units, physiological significance, and why reference intervals vary.
               </p>
             </div>
             <Link
               to="/tests"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-md transition-all self-start md:self-auto cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#124E4A] hover:bg-[#0B3330] text-white font-bold text-sm shadow-md transition-all self-start md:self-auto cursor-pointer"
             >
               <span>Explore All Tests in Catalog</span>
               <ArrowRight className="w-4 h-4" />
@@ -478,21 +478,21 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
               <Link
                 key={test.slug}
                 to={`/tests?test=${test.slug}`}
-                className="group p-5 rounded-2xl bg-white/90 hover:bg-white border border-slate-200/90 hover:border-teal-400 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                className="group p-5 rounded-2xl bg-white/95 hover:bg-white border border-[#DCE7E3] hover:border-[#287F78] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between text-xs font-semibold text-teal-700 mb-1">
+                  <div className="flex items-center justify-between text-xs font-semibold text-[#287F78] mb-1">
                     <span>{test.cat}</span>
-                    <span className="font-mono text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">{test.code}</span>
+                    <span className="font-mono text-[10px] bg-[#FAF9F5] text-[#667773] px-1.5 py-0.5 rounded border border-[#DCE7E3]">{test.code}</span>
                   </div>
-                  <h4 className="font-bold text-[#0B192C] group-hover:text-teal-700 transition-colors text-sm">
+                  <h4 className="font-bold text-[#124E4A] group-hover:text-[#287F78] transition-colors text-sm">
                     {test.name}
                   </h4>
-                  <p className="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#667773] mt-2 line-clamp-2 leading-relaxed">
                     {test.desc}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-teal-700 group-hover:text-teal-800">
+                <div className="mt-4 pt-3 border-t border-[#EAF2EE] flex items-center justify-between text-xs font-semibold text-[#287F78] group-hover:text-[#124E4A]">
                   <span>View clinical guide</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </div>
@@ -504,34 +504,34 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
 
       {/* 6. SECTION E: ILLUSTRATED CLINICAL CONTEXT & SCIENCE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-12 rounded-3xl bg-white/80 border border-slate-200/90 shadow-glass">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-12 rounded-3xl bg-white/90 border border-[#DCE7E3] shadow-glass">
           <div className="lg:col-span-6 space-y-5">
-            <span className="text-xs font-bold text-cyan-800 uppercase tracking-wider bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200">
+            <span className="text-xs font-bold text-[#124E4A] uppercase tracking-wider bg-[#E5F3ED] px-3 py-1 rounded-full border border-[#A8C8BA]">
               The Science of Reference Ranges
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#0B192C] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#124E4A] tracking-tight">
               Why Laboratory Ranges Differ Between Clinics
             </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-[#667773] leading-relaxed">
               Patients often wonder why a normal glucose level or TSH range is slightly different at Hospital A versus Diagnostics Lab B. 
               Laboratory reference intervals are determined statistically from healthy control populations using specific assay reagent lots and testing equipment.
             </p>
             <div className="space-y-3 pt-2">
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-700 leading-relaxed">
+                <CheckCircle2 className="w-5 h-5 text-[#287F78] shrink-0 mt-0.5" />
+                <p className="text-xs text-[#253532] leading-relaxed">
                   <strong>Statistical 95% Central Interval:</strong> Most ranges represent the middle 95% of a healthy reference population. By definition, 2.5% of completely healthy individuals will fall slightly above or below.
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-700 leading-relaxed">
+                <CheckCircle2 className="w-5 h-5 text-[#287F78] shrink-0 mt-0.5" />
+                <p className="text-xs text-[#253532] leading-relaxed">
                   <strong>Assay Methodology:</strong> Enzymatic methods, immunoassays, and mass spectrometry each have distinct calibration baselines.
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-700 leading-relaxed">
+                <CheckCircle2 className="w-5 h-5 text-[#287F78] shrink-0 mt-0.5" />
+                <p className="text-xs text-[#253532] leading-relaxed">
                   <strong>Doctor Clinical Correlation:</strong> An out-of-range flag is a prompt for professional conversation, never an automated disease diagnosis.
                 </p>
               </div>
@@ -539,7 +539,7 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
             <div className="pt-2">
               <Link
                 to="/how-it-works"
-                className="inline-flex items-center gap-2 text-sm font-bold text-teal-700 hover:text-teal-800 group"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#124E4A] hover:text-[#287F78] group"
               >
                 <span>Read our complete laboratory interval methodology</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -547,8 +547,8 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
             </div>
           </div>
           <div className="lg:col-span-6 flex justify-center">
-            <div className="w-full max-w-md p-4 rounded-3xl bg-gradient-to-br from-cyan-50/70 to-teal-50/70 border border-teal-100 shadow-inner">
-              <DoctorPatientDiscussion className="w-full h-auto drop-shadow-sm" />
+            <div className="w-full max-w-md p-4 rounded-3xl bg-gradient-to-br from-[#E5F3ED]/80 to-[#FAF9F5]/90 border border-[#A8C8BA]/60 shadow-inner">
+              <DoctorPatientDiscussion className="w-full h-auto drop-shadow-xs" />
             </div>
           </div>
         </div>
@@ -556,15 +556,15 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
 
       {/* 7. SECTION F: TRUST & RESPONSIBLE AI */}
       <section id="privacy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#07111F] text-white border border-cyan-500/30 shadow-2xl relative overflow-hidden">
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#124E4A] text-white border border-[#1B5B56] shadow-xl relative overflow-hidden">
           <div className="max-w-3xl">
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-full border border-cyan-800">
+            <span className="text-xs font-bold text-[#A8C8BA] uppercase tracking-wider bg-[#0E3E3B] px-3 py-1 rounded-full border border-[#1B5B56]">
               Responsible AI & Clinical Integrity
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight mt-3 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight mt-3 mb-4 text-white">
               Our Safety Commitments to Patients
             </h2>
-            <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
+            <div className="space-y-4 text-sm text-[#E5F3ED]/90 leading-relaxed">
               <p>
                 • <strong>Deterministic, Rule-Based Range Classification:</strong> We never employ probabilistic language models to classify whether your test is in or out of range. Results are compared strictly against the printed laboratory reference interval.
               </p>
@@ -585,13 +585,13 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
       {/* 8. SECTION G: FREQUENTLY ASKED QUESTIONS */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <span className="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+          <span className="text-xs font-bold text-[#124E4A] uppercase tracking-wider bg-[#E5F3ED] px-3 py-1 rounded-full border border-[#A8C8BA]">
             Common Patient Questions
           </span>
-          <h2 className="text-3xl font-black text-[#0B192C] tracking-tight mt-3">
+          <h2 className="text-3xl font-black text-[#124E4A] tracking-tight mt-3">
             Frequently Asked Questions
           </h2>
-          <p className="text-sm text-slate-600 mt-2">
+          <p className="text-sm text-[#667773] mt-2">
             Clear answers on how Spark Decoded protects your privacy and supports your healthcare consultations.
           </p>
         </div>
@@ -623,21 +623,21 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
             return (
               <div 
                 key={idx}
-                className="rounded-2xl border border-slate-200/90 bg-white/90 overflow-hidden shadow-xs transition-all"
+                className="rounded-2xl border border-[#DCE7E3] bg-white/95 overflow-hidden shadow-2xs transition-all"
               >
                 <button
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[#0B192C] hover:text-teal-700 transition-colors cursor-pointer"
+                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[#124E4A] hover:text-[#287F78] transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
                   {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-teal-600 shrink-0" />
+                    <ChevronUp className="w-5 h-5 text-[#287F78] shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-[#667773] shrink-0" />
                   )}
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-0 text-sm text-slate-600 leading-relaxed border-t border-slate-100 mt-2 pt-3">
+                  <div className="px-5 pb-5 pt-0 text-sm text-[#667773] leading-relaxed border-t border-[#EAF2EE] mt-2 pt-3">
                     {faq.a}
                   </div>
                 )}
@@ -649,26 +649,26 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
 
       {/* 9. SECTION H: FINAL CALL TO ACTION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-[#0F766E] via-[#0D9488] to-[#06B6D4] text-white shadow-2xl text-center relative overflow-hidden">
+        <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-[#124E4A] via-[#1B5B56] to-[#287F78] text-white shadow-xl text-center relative overflow-hidden border border-[#A8C8BA]/30">
           <div className="relative z-10 max-w-2xl mx-auto space-y-5">
             <SparkLogo size="lg" className="mx-auto mb-2" />
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
               Ready to Understand Your Report?
             </h2>
-            <p className="text-sm sm:text-base text-cyan-100 leading-relaxed font-medium">
+            <p className="text-sm sm:text-base text-[#E5F3ED] leading-relaxed font-medium">
               Upload your laboratory scan or explore our illustrative sample panel. Completely free, private, and runs directly on your device.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
               <button
                 onClick={onStartUpload}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-slate-900 font-extrabold text-sm shadow-xl hover:bg-slate-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-[#124E4A] font-extrabold text-sm shadow-xl hover:bg-[#FAF9F5] transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Zap className="w-4 h-4 text-teal-600 fill-teal-600" />
+                <Sparkles className="w-4 h-4 text-[#124E4A] fill-[#124E4A]" />
                 <span>Decode My Report Now</span>
               </button>
               <button
                 onClick={onExploreDemo}
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-teal-900/40 hover:bg-teal-900/60 text-white font-bold text-sm border border-white/30 backdrop-blur-md transition-all cursor-pointer"
+                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#0E3E3B]/60 hover:bg-[#0E3E3B]/80 text-white font-bold text-sm border border-white/20 backdrop-blur-md transition-all cursor-pointer"
               >
                 <span>Explore Interactive Demo</span>
               </button>
