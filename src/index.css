@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F8FAFC] text-slate-800 antialiased selection:bg-cyan-100 selection:text-cyan-900;
+    /* Subtle clinical grid background with soft radial teal & cyan glow */
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(13, 148, 136, 0.06) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(224, 242, 254, 0.3) 0px, transparent 70%),
+      linear-gradient(to right, rgba(226, 232, 240, 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(226, 232, 240, 0.35) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  }
+}
+
+/* Glassmorphism & 3D styling utility layers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(11, 25, 44, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(11, 25, 44, 0.04);
+}
+
+.glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 12px 32px -4px rgba(11, 25, 44, 0.08), 0 0 0 1px rgba(6, 182, 212, 0.15);
+}
+
+/* 3D tilt perspective container */
+.perspective-container {
+  perspective: 1200px;
+}
+
+.card-3d-tilt {
+  transform: rotateY(-6deg) rotateX(4deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.card-3d-tilt:hover {
+  transform: rotateY(-2deg) rotateX(1deg) translateY(-4px);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-3d-tilt {
+    transform: none !important;
+  }
+}
+
+/* Print layout optimizations */
+@media print {
+  header,
+  .no-print,
+  button:not(.print-keep),
+  input[type="text"],
+  .fixed,
+  .sticky {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+    background-image: none !important;
+    color: black !important;
+    font-size: 11pt !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
