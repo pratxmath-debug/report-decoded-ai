@@ -8,6 +8,27 @@ export interface DoctorQuestion {
   rationale: string;
 }
 
+/**
+ * Sanitizes test parameter names for doctor questions to ensure raw text dumps,
+ * multiline snippets, and report boilerplate are never injected into questions.
+ */
+export function sanitizeParameterName(name: string | null | undefined): string | null {
+  if (!name) return null;
+  const clean = name.replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim();
+  
+  // Filter out raw text dumps, overly long strings, or boilerplates
+  if (clean.length < 2 || clean.length > 50) return null;
+  if (/^(?:page\s*\d+|report|patient|doctor|sample|reference|normal|clinical|strictly\s*confidential)/i.test(clean)) {
+    return null;
+  }
+  if (clean.includes('--- Page') || clean.includes('http') || clean.includes('...')) {
+    return null;
+  }
+
+  // Clean trailing punctuation
+  return clean.replace(/[\:\-\|\.\,\*\(\)\s]+$/, '').trim();
+}
+
 export function generateDoctorQuestions(parameters: ProcessedParameter[]): DoctorQuestion[] {
   const questions: DoctorQuestion[] = [];
   let qId = 1;
@@ -41,22 +62,26 @@ export function generateDoctorQuestions(parameters: ProcessedParameter[]): Docto
     rationale: 'Common supplements (like biotin or vitamin C) and daily medications frequently interact with laboratory assays and organ clearance rates.'
   });
 
-  // 2. Targeted Inquiries for Out-of-Range or Needing-Verification Parameters
+  // 2. Targeted Inquiries for Out-of-Range Parameters
   const outOfRange = parameters.filter(
     (p) => p.classification.status === 'ABOVE_RANGE' || p.classification.status === 'BELOW_RANGE'
   );
 
-  const needsVerification = parameters.filter(
-    (p) => p.classification.status === 'NEEDS_VERIFICATION'
+  const cleanOutOfRangeNames = Array.from(
+    new Set(
+      outOfRange
+        .map((p) => sanitizeParameterName(p.name))
+        .filter((n): n is string => Boolean(n))
+    )
   );
 
-  if (outOfRange.length > 0) {
-    const names = outOfRange.map((p) => p.name).join(', ');
+  if (cleanOutOfRangeNames.length > 0) {
+    const formattedNames = cleanOutOfRangeNames.slice(0, 5).join(', ');
     questions.push({
       id: `q-${qId++}`,
       category: 'General Context',
-      question: `For parameters outside this laboratory's printed reference range (${names}), are there specific follow-up evaluations or lifestyle factors we should consider first?`,
-      relevantParameters: outOfRange.map((p) => p.name),
+      question: `For parameters outside this laboratory's printed reference range (${formattedNames}), are there specific follow-up evaluations or lifestyle factors we should consider first?`,
+      relevantParameters: cleanOutOfRangeNames,
       rationale: 'Focuses discussion on whether specific variations are clinically meaningful or represent standard physiological variance for you.'
     });
   }
@@ -64,29 +89,45 @@ export function generateDoctorQuestions(parameters: ProcessedParameter[]): Docto
   // 3. Glossary-specific inquiries if available
   const uniqueParamQuestions = new Set<string>();
   for (const p of parameters) {
-    if (p.glossary && p.glossary.commonQuestions.length > 0) {
+    const cleanName = sanitizeParameterName(p.name);
+    if (!cleanName) continue;
+
+    if (p.glossary && p.glossary.commonQuestions && p.glossary.commonQuestions.length > 0) {
       for (const customQ of p.glossary.commonQuestions) {
         if (!uniqueParamQuestions.has(customQ) && questions.length < 8) {
           uniqueParamQuestions.add(customQ);
           questions.push({
             id: `q-${qId++}`,
             category: 'Testing Validity',
-            question: `${p.name}: ${customQ}`,
-            relevantParameters: [p.name],
-            rationale: `Derived from general educational properties of ${p.name}.`
+            question: `${cleanName}: ${customQ}`,
+            relevantParameters: [cleanName],
+            rationale: `Derived from general educational properties of ${cleanName}.`
           });
         }
       }
     }
   }
 
-  if (needsVerification.length > 0) {
-    const unverifiedNames = needsVerification.map((p) => p.name || 'unnamed parameter').join(', ');
+  // 4. Targeted Inquiries for Parameters Needing Verification
+  const needsVerification = parameters.filter(
+    (p) => p.classification.status === 'NEEDS_VERIFICATION'
+  );
+
+  const cleanUnverifiedNames = Array.from(
+    new Set(
+      needsVerification
+        .map((p) => sanitizeParameterName(p.name))
+        .filter((n): n is string => Boolean(n))
+    )
+  );
+
+  if (cleanUnverifiedNames.length > 0) {
+    const formattedNames = cleanUnverifiedNames.slice(0, 5).join(', ');
     questions.push({
       id: `q-${qId++}`,
       category: 'Testing Validity',
-      question: `Some parameters (${unverifiedNames}) had unprinted or unreadable reference ranges on this report copy. Can you help clarify your clinic's expected baseline range for these?`,
-      relevantParameters: needsVerification.map((p) => p.name),
+      question: `Some parameters (${formattedNames}) had unprinted or unreadable reference ranges on this report copy. Can you help clarify your clinic's expected baseline range for these?`,
+      relevantParameters: cleanUnverifiedNames,
       rationale: 'Ensures missing reference intervals on partial lab printouts are clarified with your doctor’s electronic health records.'
     });
   }

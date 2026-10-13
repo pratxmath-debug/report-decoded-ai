@@ -170,6 +170,51 @@ export const MEDICAL_GLOSSARY: GlossaryEntry[] = [
     ]
   },
   {
+    id: 'rbc_count',
+    canonicalName: 'Red Blood Cell Count (RBC)',
+    synonyms: ['rbc', 'red blood cell count', 'red blood cells', 'rbc count', 'erythrocyte count'],
+    whatItMeasures:
+      'Measures the total concentration of circulating red blood cells that transport oxygen from the lungs to bodily tissues.',
+    clinicalContext:
+      'Evaluated during complete blood counts to assess cellular oxygen delivery capacity alongside hemoglobin and hematocrit.',
+    category: 'Hematology / Blood Counts',
+    commonQuestions: [
+      'How does my RBC count compare with my hemoglobin and hematocrit levels?',
+      'Could my hydration state on the morning of testing have influenced this count?',
+      'Are any additional iron or nutritional evaluations indicated?'
+    ]
+  },
+  {
+    id: 'hematocrit',
+    canonicalName: 'Hematocrit (PCV)',
+    synonyms: ['hematocrit', 'pcv', 'packed cell volume', 'hct'],
+    whatItMeasures:
+      'Measures the percentage of total blood volume occupied by red blood cells.',
+    clinicalContext:
+      'Helps clinicians evaluate red cell concentration and bodily hydration balance in conjunction with hemoglobin.',
+    category: 'Hematology / Blood Counts',
+    commonQuestions: [
+      'Does this hematocrit result reflect my current hydration level?',
+      'How does this percentage correlate with my measured hemoglobin value?',
+      'Should this be re-evaluated during my next routine follow-up?'
+    ]
+  },
+  {
+    id: 'mcv',
+    canonicalName: 'Mean Corpuscular Volume (MCV)',
+    synonyms: ['mcv', 'mean corpuscular volume', 'mean cell volume'],
+    whatItMeasures:
+      'Measures the average physical size and volume of individual red blood cells in femtoliters (fL).',
+    clinicalContext:
+      'Used by healthcare providers to classify red blood cell populations as microcytic (smaller), normocytic (standard), or macrocytic (larger).',
+    category: 'Hematology / Blood Counts',
+    commonQuestions: [
+      'What does this average cell volume indicate about my red blood cell development?',
+      'Would checking vitamin B12, folate, or ferritin levels provide helpful context?',
+      'Does this require any special dietary attention or routine follow-up?'
+    ]
+  },
+  {
     id: 'ldl_cholesterol',
     canonicalName: 'LDL Cholesterol',
     synonyms: ['ldl', 'ldl cholesterol', 'ldl-c', 'low density lipoprotein'],
